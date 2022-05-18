@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\FrontOffice;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,7 +13,6 @@ class HomeController extends AbstractController
      */
     public function index(): Response
     {
-        $test = "test";
         return $this->render('front/home/index.html.twig', [
             'test' => $test,
         ]);
