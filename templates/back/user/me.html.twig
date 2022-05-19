@@ -1,0 +1,47 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}{{ parent() }} | Mon profil{% endblock %}
+
+{% block main %}
+
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8 col-xl-6">
+            <div class="card m-4">
+                <div class="card-header d-flex justify-content-center align-items-center">
+                    <p class="h4">Mon profil</p>
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped table-novered mb-0">
+                        <tbody>
+                        <tr>
+                            <td class="text-center align-middle">Prénom</td>
+                            <td class="text-center align-middle">{{ me.firstname }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center align-middle">Nom</td>
+                            <td class="text-center align-middle">{{ me.lastname }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center align-middle">Nom d'utilisateur</td>
+                            <td class="text-center align-middle">{{ me.username }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center align-middle">Sexe</td>
+                            <td class="text-center align-middle">{{ me.gender }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center align-middle">Age</td>
+                            <td class="text-center align-middle">{{ me.age }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer">
+                    <a href="{{ path('dashboard') }}" class="btn btn-secondary">Retour</a>
+                    <a href="#" class="btn btn-primary">Modifier</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
