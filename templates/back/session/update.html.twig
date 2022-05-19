@@ -1,0 +1,11 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}{{ parent() }} | Modification de la session{% endblock %}
+
+{% block main %}
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8 col-xl-6">
+            {% include 'back/session/_form.html.twig' with { sessionForm: sessionForm, title: "Modification de la session", action: "Modifier" } %}
+        </div>
+    </div>
+{% endblock %}

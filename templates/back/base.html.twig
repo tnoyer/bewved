@@ -17,7 +17,7 @@
 <body>
 <div>
     <header>
-        {# {% include "partials/navbar.html.twig" %} #}
+        {% include "back/partials/navbar.html.twig" %}
     </header>
     <main>
         {% for label, messages in app.flashes %}
@@ -37,7 +37,7 @@
     </main>
     <!-- Footer -->
     <footer>
-        {# {% include("partials/footer.html.twig") %} #}
+        {% include("back/partials/footer.html.twig") %}
     </footer>
 
     {% block javascripts %}
