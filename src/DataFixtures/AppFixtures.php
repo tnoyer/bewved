@@ -46,7 +46,7 @@ class AppFixtures extends Fixture
         $manager->persist($session);
 
         $session = new Session();
-        $session->setName('Formation Android');
+        $session->setName('Formation PHP');
         $session->setStart(new \DateTimeImmutable("2022-05-26"));
         $session->setEnd(new \DateTimeImmutable("2022-06-26"));
         $session->setSize(15);

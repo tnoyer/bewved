@@ -28,6 +28,14 @@
                         <td class="text-center align-middle">Taille</td>
                         <td class="text-center align-middle">{{ session.size }}</td>
                     </tr>
+                    <tr>
+                        <td class="text-center align-middle">Apprenants</td>
+                        <td class="text-center align-middle">
+                            {% for user in session.users %}
+                                {{ user.username }}
+                            {% endfor %}
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
                 <div class="card-body">

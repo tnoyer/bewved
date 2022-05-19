@@ -46,7 +46,9 @@ class SessionType extends AbstractType
             ->add('size', IntegerType::class, [
                 'label' => 'Taille de la session',
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'min' => 10,
+                    'max' => 25
                 ]
             ])
         ;
