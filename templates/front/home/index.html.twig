@@ -1,7 +1,49 @@
 {% extends 'front/base.html.twig' %}
 
+{% block js %}
+<!--<script src="https://unpkg.com/infinite-scroll@4/dist/infinite-scroll.pkgd.min.js"></script>
+<img src="..." class="rounded float-left" alt="..."> -->
+{% endblock %}
+
 {% block title %}{{ parent() }}{% endblock %}
 
+
 {% block main %}
-    <h1>test </h1>
+
+
+    <style>
+        container {
+            display: flex;
+            width: 450px;
+            height: 300px;
+            border: 2px solid red;
+        }
+        .container div {
+            flex: 1;
+        }
+        .container img {
+            max-width:100%;
+        }
+
+    </style>
+    <br>
+    <div class="container" >
+        <h2>Liste des Sessions</h2>
+        <p>Il s'agit de la liste des sessions auxquelles vous participerez durant votre parcours</p>
+        <p>Vous pouvez ici accèder aux détails de celles-ci :</p>
+        <br>
+        <div class="row" >
+            {% for session in currentUser.Sesssions %}
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                        <a href="{{ path('app_session_details', { id: session.id }) }}">
+                            <img  class="img-responsive" src="/images/java2.png" alt="Lights" style="width:100%">
+                            <div class= "im" style="text-align:center">
+                                <p>{{ session.name }}</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+
 {% endblock %}
