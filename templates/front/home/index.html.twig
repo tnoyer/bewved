@@ -30,73 +30,20 @@
     <div class="container" >
         <h2>Liste des Sessions</h2>
         <p>Il s'agit de la liste des sessions auxquelles vous participerez durant votre parcours</p>
-        <p>Vous pouvez ici accèder aux groupes de vos différentes sessions</p>
+        <p>Vous pouvez ici accèder aux détails de celles-ci :</p>
         <br>
         <div class="row" >
-            <div class="col-md-4">
-                <div class="thumbnail"  >
-                    <a href="/images/java2.png" target="_blank">
-                        <img  class="img-responsive" src="/images/java2.png" alt="Lights" style="width:100%">
-                        <div class= "im" style="text-align:center">
-                            <p>Nom de Session</p>
-                        </div>
-                    </a>
+            {% for session in currentUser.Sesssions %}
+                <div class="col-md-4">
+                    <div class="thumbnail"  >
+                        <a href="/images/java2.png" target="_blank">
+                            <img  class="img-responsive" src="/images/java2.png" alt="Lights" style="width:100%">
+                            <div class= "im" style="text-align:center">
+                                <p>{{ session.name }}</p>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="thumbnail">
-                    <a href="/w3images/nature.jpg" target="_blank">
-                        <img  class="img-responsive"  src="/images/java3.png" alt="Nature" style="width:100%">
-                        <div class= "im" style="text-align:center">
-                            <p>Nom de Session</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="thumbnail">
-                    <a href="/w3images/fjords.jpg" target="_blank">
-                        <img  class="img-responsive" src="{{ asset('../../../public/images/java3.png') }}" alt="Fjords" style="width:100%">
-                        <div class= "im" style="text-align:center">
-                            <p>Nom de Session</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="thumbnail">
-                    <a href="/w3images/lights.jpg" target="_blank">
-                        <img src="/images/php1.png" alt="Lights" style="width:100%">
-                        <div class= "im" style="text-align:center">
-                            <p>Nom de Session</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class= "im" style="text-align:center">
-                    <a href="/w3images/nature.jpg" target="_blank">
-                        <img src="/images/php2.jpg"  alt="Nature" style="width:100%">
-                        <div class= "im" style="text-align:center">
-                            <p>Nom de Session</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="thumbnail">
-                    <a href="/w3images/fjords.jpg" target="_blank">
-                        <img src="/w3images/fjords.jpg" alt="Fjords" style="width:100%">
-                        <div class= "im" style="text-align:center">
-                            <p>Nom de Session</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
+            {% endfor %}
+
 {% endblock %}
