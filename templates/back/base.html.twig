@@ -15,7 +15,7 @@
     {% endblock %}
 </head>
 <body>
-<div>
+<div style="height: 100%; display: flex; flex-direction: column; align-content: space-between">
     <header>
         {% include "back/partials/navbar.html.twig" %}
     </header>
@@ -36,7 +36,7 @@
         {% block main %}{% endblock %}
     </main>
     <!-- Footer -->
-    <footer>
+    <footer class="mt-5">
         {% include("back/partials/footer.html.twig") %}
     </footer>
 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>{% block title %}Bewved{% endblock %}</title>
     {% block head_css %}
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
     {% endblock %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     {% block stylesheets %}
@@ -17,7 +17,7 @@
 <body>
 <div>
     <header>
-        {# {% include "partials/navbar.html.twig" %} #}
+        {%  include 'front/partials/header.html.twig' %}
     </header>
     <main>
         {% for label, messages in app.flashes %}
@@ -51,5 +51,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
     {% endblock %}
 </div>
+
+{%  include 'front/partials/footer.html.twig' %}
 </body>
 </html>
