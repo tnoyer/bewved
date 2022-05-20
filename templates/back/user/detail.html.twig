@@ -36,6 +36,16 @@
                         <td class="text-center align-middle">Promotion</td>
                         <td class="text-center align-middle">{{ user.promotion }}</td>
                     </tr>
+                    <tr>
+                        <td class="text-center align-middle">Compétences</td>
+                        <td class="text-center align-middle">
+                            {% for skill in user.skills %}
+                                <div>
+                                    {{ skill.name }}
+                                </div>
+                            {% endfor %}
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
                 <div class="card-body">

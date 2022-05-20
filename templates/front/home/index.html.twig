@@ -40,9 +40,9 @@
                 <div class="thumbnail">
                     <a href="{{ path('app_session_details', { id: session.id }) }}">
                         {% if session.image is null %}
-                            <img class="img-responsive" src="/images/java2.png" alt="Lights" style="width:100%">
+                            <img class="img-responsive" src="/images/default-image.png" alt="Lights" style="width:100%">
                         {% else %}
-                            <img class="img-responsive" src="{{ asset('/images/'.session.image) }}" alt="Lights"
+                            <img class="img-responsive" src="{{ asset('/images/' ~ session.image) }}" alt="Lights"
                                  style="width:100%">
                         {% endif %}
                         <div class="im" style="text-align:center">

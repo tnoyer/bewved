@@ -37,27 +37,43 @@ class AppFixtures extends Fixture
         $skill3->setName('Javascript');
         $manager->persist($skill3);
 
+        $skill4 = new Skill();
+        $skill4->setName('HTML');
+        $manager->persist($skill4);
+
+        $skill5 = new Skill();
+        $skill5->setName('CSS');
+        $manager->persist($skill5);
+
         //session
         $session = new Session();
-        $session->setName('Formation Android');
-        $session->setStart(new \DateTimeImmutable("2022-05-26"));
-        $session->setEnd(new \DateTimeImmutable("2022-06-26"));
-        $session->setSize(15);
-        $manager->persist($session);
-
-        $session = new Session();
-        $session->setName('Formation PHP');
+        $session->setName('Formation Python');
+        $session->setImage('python3.jpg');
         $session->setStart(new \DateTimeImmutable("2022-05-26"));
         $session->setEnd(new \DateTimeImmutable("2022-06-26"));
         $session->setSize(15);
         $manager->persist($session);
 
         $session2 = new Session();
-        $session2->setName('Formation JAVA');
-        $session2->setStart(new \DateTimeImmutable("2022-06-27"));
-        $session2->setEnd(new \DateTimeImmutable("2022-07-26"));
-        $session2->setSize(20);
+        $session2->setName('Formation PHP');
+        $session2->setStart(new \DateTimeImmutable("2022-05-26"));
+        $session2->setEnd(new \DateTimeImmutable("2022-06-26"));
+        $session2->setSize(15);
         $manager->persist($session2);
+
+        $session3 = new Session();
+        $session3->setName('Formation JAVA');
+        $session3->setStart(new \DateTimeImmutable("2022-06-27"));
+        $session3->setEnd(new \DateTimeImmutable("2022-07-26"));
+        $session3->setSize(20);
+        $manager->persist($session3);
+
+        $session4 = new Session();
+        $session4->setName('Formation C#');
+        $session4->setStart(new \DateTimeImmutable("2022-07-27"));
+        $session4->setEnd(new \DateTimeImmutable("2022-08-26"));
+        $session4->setSize(20);
+        $manager->persist($session4);
 
         //promotion
         $promotion = new Promotion();
@@ -74,7 +90,10 @@ class AppFixtures extends Fixture
         $admin->setFirstname('Ned');
         $admin->setLastname('Stark');
         $admin->addSkill($skill);
+        $admin->addSkill($skill2);
+        $admin->addSkill($skill3);
         $admin->addSesssion($session);
+        $admin->addSesssion($session2);
         $admin->setAge(32);
         $admin->setGender('homme');
         $admin->setPromotion($promotion);
@@ -87,6 +106,7 @@ class AppFixtures extends Fixture
         $user->setFirstname('Alexandre');
         $user->setLastname('Le Grand');
         $user->addSkill($skill2);
+        $user->addSkill($skill4);
         $user->addSesssion($session2);
         $user->setAge(25);
         $user->setGender('homme');
@@ -107,6 +127,48 @@ class AppFixtures extends Fixture
         $user2->setUsername('tyrionlannister');
         $user2->setRoles(['ROLE_USER']);
         $manager->persist($user2);
+
+        $user3 = new User();
+        $user3->setPassword($this->passwordEncoder->encodePassword($user3, '123456'));
+        $user3->setFirstname('Daeneris');
+        $user3->setLastname('Targaryen');
+        $user3->addSkill($skill2);
+        $user3->addSkill($skill4);
+        $user3->addSesssion($session2);
+        $user3->setAge(26);
+        $user3->setGender('femme');
+        $user3->setPromotion($promotion2);
+        $user3->setUsername('daeneristargaryen');
+        $user3->setRoles(['ROLE_USER']);
+        $manager->persist($user3);
+
+        $user4 = new User();
+        $user4->setPassword($this->passwordEncoder->encodePassword($user4, '123456'));
+        $user4->setFirstname('Géralt');
+        $user4->setLastname('De Riv');
+        $user4->addSkill($skill2);
+        $user4->addSkill($skill4);
+        $user4->addSesssion($session);
+        $user4->setAge(31);
+        $user4->setGender('homme');
+        $user4->setPromotion($promotion2);
+        $user4->setUsername('geraltderiv');
+        $user4->setRoles(['ROLE_USER']);
+        $manager->persist($user4);
+
+        $user5 = new User();
+        $user5->setPassword($this->passwordEncoder->encodePassword($user5, '123456'));
+        $user5->setFirstname('Yennefer');
+        $user5->setLastname('De Venderberg');
+        $user5->addSkill($skill2);
+        $user5->addSkill($skill4);
+        $user5->addSesssion($session);
+        $user5->setAge(31);
+        $user5->setGender('femme');
+        $user5->setPromotion($promotion2);
+        $user5->setUsername('yenneferdevenderberg');
+        $user5->setRoles(['ROLE_USER']);
+        $manager->persist($user5);
 
         $manager->flush();
     }
