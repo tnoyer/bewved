@@ -71,10 +71,16 @@ class User implements UserInterface
      */
     private $age;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Group::class, inversedBy="users")
+     */
+    private $team;
+
     public function __construct()
     {
         $this->skills = new ArrayCollection();
         $this->sesssions = new ArrayCollection();
+        $this->team = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -257,6 +263,30 @@ class User implements UserInterface
     public function setAge(int $age): self
     {
         $this->age = $age;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Group>
+     */
+    public function getTeam(): Collection
+    {
+        return $this->team;
+    }
+
+    public function addTeam(Group $team): self
+    {
+        if (!$this->team->contains($team)) {
+            $this->team[] = $team;
+        }
+
+        return $this;
+    }
+
+    public function removeTeam(Group $team): self
+    {
+        $this->team->removeElement($team);
 
         return $this;
     }

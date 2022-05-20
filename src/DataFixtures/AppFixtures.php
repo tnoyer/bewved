@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Group;
 use App\Entity\Promotion;
 use App\Entity\Session;
 use App\Entity\Skill;
@@ -68,6 +69,8 @@ class AppFixtures extends Fixture
         $promotion2->setName('DWWM 2022');
         $manager->persist($promotion2);
 
+
+
         //user
         $admin = new User();
         $admin->setPassword($this->passwordEncoder->encodePassword($admin, '123456'));
@@ -107,6 +110,29 @@ class AppFixtures extends Fixture
         $user2->setUsername('tyrionlannister');
         $user2->setRoles(['ROLE_USER']);
         $manager->persist($user2);
+
+        $user3 = new User();
+        $user3->setPassword($this->passwordEncoder->encodePassword($user2, '123456'));
+        $user3->setFirstname('Arthur');
+        $user3->setLastname('Pendragon');
+        $user3->addSkill($skill);
+        $user3->addSkill($skill2);
+        $user3->addSesssion($session2);
+        $user3->setAge(30);
+        $user3->setGender('homme');
+        $user3->setPromotion($promotion);
+        $user3->setUsername('arthurpendragon');
+        $user3->setRoles(['ROLE_USER']);
+        $manager->persist($user3);
+
+        //group
+        $group = new Group();
+        $group->setName("Medhi et Val");
+        $group->setSize(3);
+        $group->addUser($user);
+        $group->addUser($user2);
+        $group->addUser($user3);
+        $manager->persist($group);
 
         $manager->flush();
     }

@@ -1,0 +1,43 @@
+{% extends 'front/base.html.twig' %}
+
+{% block title %}{{ parent() }}{% endblock %}
+
+
+{% block main %}
+    <br>
+    <br>
+    <br>
+
+
+    <div class="container"  >
+        <h2 style="text-align:center">Votre Groupe pour la session {{ group.session }}: {{ group.name }}</h2>
+        <br>
+        <div class="row" >
+        {% for user in group.users %}
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem; margin-top: 5% ">
+                    <img src="..." class="card-img-top" alt="BewVed">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ user.username }}</h5>
+             <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk
+                of the card's content.</p>-->
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">AGE : {{ user.age }} </li>
+                        <li class="list-group-item">SEXE : {{ user.gender }}</li>
+                        <ul class="list-group-item">Compétences
+                            {% for s in user.skills %}
+                                <li class = "a">{{ s.name }}</li>
+                            {% endfor %}
+                        </ul>
+                     </ul>
+                    <div class="card-body" style="text-align:center">
+                        <p>{{ user.promotion.name }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+
+
+{% endblock %}
